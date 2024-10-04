@@ -1,0 +1,6 @@
+# Library untuk manipulasi data
+pandas
+
+# Library untuk visualisasi
+matplotlib
+seaborn
