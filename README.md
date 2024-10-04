@@ -13,15 +13,12 @@ The data used in this project comes from the following source:
 ## Requirements
 To run this project, you need to install the following Python packages:
 
-streamlit==1.25.0
-
-pandas==2.0.1
-
-numpy==1.24.3
-
-matplotlib==3.7.1
-
-seaborn==0.12.2
+- Babel==2.11.0
+- matplotlib==3.8.4
+- numpy==1.26.4
+- pandas==2.2.2
+- seaborn==0.13.2
+- streamlit==1.32.0
 
 
 You can find the required packages listed in the requirements.txt file.
