@@ -1,6 +1,14 @@
-# Library untuk manipulasi data
-pandas
+# Streamlit digunakan untuk membuat dashboard interaktif
+streamlit==1.25.0
 
-# Library untuk visualisasi
-matplotlib
-seaborn
+# Pandas untuk manipulasi data  (data frame)
+pandas==2.0.1
+
+# NumPy untuk operasi numerik dan manipulasi array
+numpy==1.24.3
+
+# Matplotlib untuk membuat visualisasi data
+matplotlib==3.7.1
+
+# Seaborn untuk membuat visualisasi statistik
+seaborn==0.12.2
