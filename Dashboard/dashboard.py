@@ -24,12 +24,12 @@ if pilihan == 'Exploratory Data Analysis (EDA)':
     # Visualisasi Rata-rata Penyewaan Berdasarkan Kondisi Cuaca
     weather_agg = df_hour.groupby(by=['weathersit', 'season']).agg(avg_rentals=('cnt', 'mean')).reset_index()
 
-    fig, ax = plt.subplots()
-    sns.barplot(x='weathersit', y='avg_rentals', data=weather_agg, hue='season', palette='coolwarm', ax=ax)
-    ax.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Kondisi Cuaca')
-    ax.set_xlabel('Kondisi Cuaca (1: Cerah, 2: Berawan, 3: Hujan Ringan, 4: Hujan Berat)')
-    ax.set_ylabel('Rata-rata Penyewaan Sepeda')
-    ax.set_xticklabels(['Cerah', 'Berawan', 'Hujan Ringan', 'Hujan Berat'])
+    fig, plot1 = plt.subplots()
+    sns.barplot(x='weathersit', y='avg_rentals', data=weather_agg, hue='season', palette='coolwarm', ax=plot1)
+    plot1.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Kondisi Cuaca')
+    plot1.set_xlabel('Kondisi Cuaca (1: Cerah, 2: Berawan, 3: Hujan Ringan, 4: Hujan Berat)')
+    plot1.set_ylabel('Rata-rata Penyewaan Sepeda')
+    plot1.set_xticklabels(['Cerah', 'Berawan', 'Hujan Ringan', 'Hujan Berat'])
     st.pyplot(fig)
 
     # Visualisasi Penyewaan pada Hari Kerja vs Akhir Pekan
@@ -38,12 +38,12 @@ if pilihan == 'Exploratory Data Analysis (EDA)':
         total_rentals=('cnt', 'sum')
     ).reset_index()
 
-    fig2, ax2 = plt.subplots()
-    sns.barplot(x='workingday', y='avg_rentals', data=working_day, hue='workingday', palette='Blues_d', ax=ax2)
-    ax2.set_title('Rata-rata Penyewaan Sepeda pada Hari Kerja vs Akhir Pekan')
-    ax2.set_xlabel('Hari Kerja (0: Akhir Pekan, 1: Hari Kerja)')
-    ax2.set_ylabel('Rata-rata Penyewaan')
-    ax2.set_xticklabels(['Akhir Pekan', 'Hari Kerja'])
+    fig2, plot2 = plt.subplots()
+    sns.barplot(x='workingday', y='avg_rentals', data=working_day, hue='workingday', palette='Blues_d', ax=plot2)
+    plot2.set_title('Rata-rata Penyewaan Sepeda pada Hari Kerja vs Akhir Pekan')
+    plot2.set_xlabel('Hari Kerja (0: Akhir Pekan, 1: Hari Kerja)')
+    plot2.set_ylabel('Rata-rata Penyewaan')
+    plot2.set_xticklabels(['Akhir Pekan', 'Hari Kerja'])
     st.pyplot(fig2)
 
     weekday_hour = df_hour.groupby(by=['weekday', 'hr']).agg(
@@ -52,24 +52,24 @@ if pilihan == 'Exploratory Data Analysis (EDA)':
     ).reset_index()
 
     # Membuat figure untuk visualisasi rata-rata penyewaan
-    fig3, ax3 = plt.subplots(figsize=(12, 6))
-    sns.lineplot(x='hr', y='avg_rentals', hue='weekday', data=weekday_hour, marker='o', ax=ax3)
-    ax3.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Jam dan Hari dalam Seminggu')
-    ax3.set_xlabel('Jam dalam Sehari')
-    ax3.set_ylabel('Rata-rata Penyewaan Sepeda')
-    ax3.set_xticks(range(0, 24, 1))  # Menampilkan jam 0-23
-    ax3.set_xticklabels(range(0, 24, 1))
-    ax3.legend(title='Hari dalam Seminggu', labels=['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'])
+    fig3, plot3 = plt.subplots(figsize=(12, 6))
+    sns.lineplot(x='hr', y='avg_rentals', hue='weekday', data=weekday_hour, marker='o', ax=plot3)
+    plot3.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Jam dan Hari dalam Seminggu')
+    plot3.set_xlabel('Jam dalam Sehari')
+    plot3.set_ylabel('Rata-rata Penyewaan Sepeda')
+    plot3.set_xticks(range(0, 24, 1))  # Menampilkan jam 0-23
+    plot3.set_xticklabels(range(0, 24, 1))
+    plot3.legend(title='Hari dalam Seminggu', labels=['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'])
     st.pyplot(fig3)
 
     temperature = df_hour.groupby(pd.cut(df_hour['temp'], bins=10)).agg(avg_rentals=('cnt', 'mean')).reset_index()
 
-    fig4, ax4 = plt.subplots(figsize=(10, 6))
-    sns.barplot(x='temp', y='avg_rentals', data=temperature, hue='temp', palette='Reds', ax=ax4)
-    ax4.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Suhu')
-    ax4.set_xlabel('Rentang Suhu')
-    ax4.set_ylabel('Rata-rata Penyewaan Sepeda')
-    ax4.set_xticklabels([f'{round(b.left * 41, 2)}°C - {round(b.right * 41, 2)}°C' for b in temperature['temp'].cat.categories], rotation=45)
+    fig4, plot4 = plt.subplots(figsize=(10, 6))
+    sns.barplot(x='temp', y='avg_rentals', data=temperature, hue='temp', palette='Reds', ax=plot4)
+    plot4.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Suhu')
+    plot4.set_xlabel('Rentang Suhu')
+    plot4.set_ylabel('Rata-rata Penyewaan Sepeda')
+    plot4.set_xticklabels([f'{round(b.left * 41, 2)}°C - {round(b.right * 41, 2)}°C' for b in temperature['temp'].cat.categories], rotation=45)
     st.pyplot(fig4)
 
 
@@ -91,14 +91,20 @@ elif pilihan == 'Advanced Analysis':
     total_rentals=('cnt', 'sum')
     ).reset_index()
 
-    
-    fig3, ax3 = plt.subplots()
-    sns.barplot(x='time_cluster', y='avg_rentals', data=cluster, hue='workingday',palette='Set2', ax=ax3)
-    ax3.set_title('Rata-rata Penyewaan Sepeda Berdasarkan Waktu')
-    ax3.set_xlabel('Waktu (Malam, Pagi, Siang, Sore)')
-    ax3.set_ylabel('Rata-rata Penyewaan Sepeda')
-    st.pyplot(fig3)
+    # Membuat scatter plot tanpa label cluster
+    fig4, (plot4_1, plot4_2) = plt.subplots(1, 2, figsize=(20, 6))
 
-    
-    st.write("Total Penyewaan berdasarkan Waktu Cluster:")
-    st.write(cluster)
+    # Plot data tanpa label
+    sns.scatterplot(x='hr', y='cnt', color='blue', data=df_hour, ax=plot4_1)
+    plot4_1.set_title('Unlabeled Data')
+    plot4_1.set_xlabel('Jam')
+    plot4_1.set_ylabel('Jumlah Penyewaan')
+
+    # Plot data dengan label klaster waktu
+    sns.scatterplot(x='hr', y='cnt', hue='time_cluster', palette='Set1', data=df_hour, ax=plot4_2)
+    plot4_2.set_title('Clustered Data')
+    plot4_2.set_xlabel('Jam')
+    plot4_2.set_ylabel('Jumlah Penyewaan')
+
+    # Menampilkan visualisasi di Streamlit
+    st.pyplot(fig4)
