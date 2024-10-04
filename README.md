@@ -1,5 +1,3 @@
-# Proyek-Analisis
-
 # Dicoding Collection Dashboard
 
 ## Overview
@@ -9,7 +7,7 @@ This project focuses on exploring and analyzing the *Bike Sharing Dataset*. It u
 ## Data Source
 The data used in this project comes from the following source:
 
-- [Air Quality Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/bike-sharing-dataset)
+- [Bike Sharing Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/bike-sharing-dataset)
 
 
 ## Requirements
@@ -50,12 +48,12 @@ venv\Scripts\activate
 pip install -r requirements.txt
 
 ## Prepare Data
-Ensure that you have the following CSV files in the ./data/ directory:
-PRSA_DATA_CLEAN.csv
+Ensure that you have the following CSV files in the ./Data/ directory:
+hour.csv
 
 Adjust the file paths in dashboard.py if necessary.
 
 ## Running the Dashboard
 ### Run the Streamlit application:
 
-streamlit run .\dashboard\dashboard.py 
+streamlit run Dashboard\dashboard.py 
