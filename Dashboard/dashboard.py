@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Membaca dataset
-df_hour = pd.read_csv('../Data/hour.csv')  # Pastikan jalur file CSV sesuai dengan struktur folder Anda
+df_hour = pd.read_csv('./Data/hour.csv')  # Pastikan jalur file CSV sesuai dengan struktur folder Anda
 
 st.title('Bike Sharing Dashboard')
 
