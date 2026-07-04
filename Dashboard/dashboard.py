@@ -174,4 +174,4 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**Pembuat:** Abednego Baharaja Silalahi")
     st.markdown("**Email:** abednego9123@gmail.com")
-    st.markdown("**ID Dicoding:** abednego99")
+    st.markdown("**Github:** Igoo0")
